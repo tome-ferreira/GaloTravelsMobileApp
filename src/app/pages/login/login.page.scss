@@ -1,0 +1,102 @@
+ion-content {
+  --background: #ffffff; // Fundo branco
+  text-align: center;
+
+  // Logo
+  .logo {
+    width: 200px;
+    height: auto;
+    margin: 30px auto 20px;
+  }
+
+  // Título
+  .title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 20px;
+  }
+
+  // Container de inputs
+  .input-container {
+    max-width: 400px;
+    margin: 0 auto;
+
+    .input-group {
+      margin-bottom: 10px; // Ajusta o espaçamento
+      text-align: left;
+      display: flex;
+      align-items: center; // Alinha ícone e label na mesma linha
+      position: relative;
+
+      ion-icon {
+        margin-right: 10px; // Espaço entre o ícone e a label
+        color: #aaa; // Cor do ícone
+        font-size: 1.2rem; // Tamanho do ícone
+        position: absolute; // Coloca o ícone dentro do campo de texto
+        left: 10px; // Coloca o ícone na posição inicial
+        top: 12px; // Ajusta a posição vertical
+      }
+
+      label {
+        font-size: 0.9rem;
+        color: #000; // Label a preto
+        margin-right: 10px; // Espaço entre o label e o campo de input
+      }
+    }
+
+    .custom-input {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      color: #333; // Cor do texto digitado
+      border: 1px solid #ccc; // Borda cinza
+      border-radius: 5px;
+      background-color: #DCDCDC; // Cor de fundo cinza claro
+      box-sizing: border-box;
+      margin-bottom: 20px; // Espaçamento abaixo do campo
+
+      &:focus {
+        outline: none;
+        border-color: #000; // Mantém a borda preta no foco
+      }
+
+      ::placeholder {
+        color: #aaa; // Cor do texto do placeholder
+      }
+    }
+  }
+
+  // Botão de Login
+  .login-button {
+    background-color: #d32f2f; // Cor de fundo vermelha do botão
+    color: white; // Cor do texto do botão
+    font-size: 1rem;
+    border-radius: 30px;  // Borda mais arredondada
+    height: 50px; // Altura maior para um formato mais largo
+    width: 100%; // Largura total
+    border: none; // Sem borda
+    font-weight: 600; // Peso da fonte mais forte
+    transition: background-color 0.3s ease; // Transição suave no hover
+
+    &:hover {
+      background-color: #b71c1c; // Alteração suave na cor ao passar o mouse
+    }
+  }
+
+  // Texto de recuperação
+  .recovery-text {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #333;
+
+    .recovery-link {
+      color: #d32f2f;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
