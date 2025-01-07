@@ -1,20 +1,262 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs>
+  <ion-tab tab="home">
+    <div id="home-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>
+            <img src="/src/assets/Logo.jpg" alt="User" style="border-radius: 50%; width: 40px; vertical-align: middle; margin-right: 10px;">
+            Olá User
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" fullscreen>
+        <div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h2 style="margin: 0;">Minhas Viagens</h2>
+            <button style="background-color: red; color: black; border: 1px solid black; border-radius: 8px; padding: 8px 16px; cursor: pointer;">
+              Ordenar por:
+            </button>
+          </div>          
+          <div style="margin-top: 16px;">
+            <div style="display: flex; align-items: flex-start; margin-bottom: 16px; background-color: #f4f4f4; border-radius: 8px; padding: 12px;">
+              <img src="barcelos.jpg" alt="Barcelos" style="width: 80px; height: 80px; border-radius: 8px; margin-right: 12px;">
+              <div>
+                <h3 style="margin: 0; color: black;">BARCELOS</h3>
+                <p style="margin: 4px 0 0; color: black;">Nesta viagem vou ver as luzes de natal e se tivermos tempo vou à Vicentina.</p>
+              </div>
+            </div>
+                    
+            <div style="display: flex; align-items: flex-start; background-color: #f4f4f4; border-radius: 8px; padding: 12px; flex-direction: row-reverse; margin-bottom: 16px;">
+              <img src="dubai.jpg" alt="Dubai" style="width: 80px; height: 80px; border-radius: 8px; margin-left: 12px;">
+              <div>
+                <h3 style="margin: 0;">DUBAI</h3>
+                <p style="margin: 4px 0 0;">Vou pegar no meu Bugatti e corre-lo em Abu Dhabi. Depois vou po yacht.</p>
+              </div>
+            </div>            
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </ion-tab>
+  
+  <ion-tab tab="radio">
+    <div id="radio-page">
+      <ion-header>
+        <ion-toolbar>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; width: 100%;">
+            <div style="margin: 0; color: black; font-family: 'Arial', sans-serif; font-size: 20px; font-weight: bold; margin-left: 0;">
+              PARTILHADO COMIGO
+            </div>
+            <button style="background-color: red; color: white; border: none; border-radius: 16px; padding: 8px 16px; font-weight: bold; cursor: pointer;">
+              Ordenar por:
+            </button>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+  
+      <ion-content class="ion-padding" fullscreen>
+        <!-- Cartão 1 -->
+        <div style="background-color: #f7f7d8; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+          <div style="display: flex; align-items: flex-start;">
+            <img src="barcelos.jpg" alt="Barcelos" style="width: 80px; height: 80px; border-radius: 12px; margin-right: 12px; object-fit: cover;">
+            <div>
+              <h3 style="margin: 0; color: #333;">BARCELOS</h3>
+              <p style="margin: 4px 0 0; color: #333;">Nesta viagem vou ver as luzes de natal e se tivermos tempo vou á Vicentina.</p>
+              <div style="display: flex; align-items: center; margin-top: 8px;">
+                <img src="organizer1.jpg" alt="Organizer" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 8px;">
+                <p style="margin: 0; color: #333;">Organizador: Zeca Chifrudo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Cartão 2 -->
+        <div style="background-color: #f0f5e9; border-radius: 12px; padding: 16px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+          <div style="display: flex; align-items: flex-start; flex-direction: row-reverse;">
+            <img src="dubai.jpg" alt="Dubai" style="width: 80px; height: 80px; border-radius: 12px; margin-left: 12px; object-fit: cover;">
+            <div>
+              <h3 style="margin: 0; color: #333;">DUBAI</h3>
+              <p style="margin: 4px 0 0; color: #333;">Vou pegar no meu Bugatti e corre-lo em Abu Dhabi. Depois vou po yacht.</p>
+              <div style="display: flex; align-items: center; margin-top: 8px;">
+                <img src="organizer2.jpg" alt="Organizer" style="width: 32px; height: 32px; border-radius: 50%; margin-right: 8px;">
+                <p style="margin: 0; color: #333;">Organizador:</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </ion-tab>
+  
+  
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-tab tab="library">
+    <div id="library-page">
+      <ion-header>
+        <ion-toolbar>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; width: 100%;">
+            <div style="margin: 0; color: black; font-family: 'Arial', sans-serif; font-size: 20px; font-weight: bold; margin-left: 0;">
+              ADICIONAR VIAGEM:
+            </div>
+            <button style="background-color: red; color: white; border: none; border-radius: 8px; padding: 8px 16px; cursor: pointer;">
+              CANCELAR
+            </button>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+  
+      <ion-content class="ion-padding" fullscreen>
+        <!-- Campos de Entrada -->
+        <div style="max-width: 400px; margin: 20px auto;">
+          <!-- Campo Nome -->
+          <div style="margin-bottom: 20px; text-align: left; position: relative;">
+            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+              <ion-icon name="person" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
+              <label for="nome" style="color: #555; font-size: 1rem;">Nome</label>
+            </div>
+            <input
+              type="text"
+              id="nome"
+              placeholder="Digite o nome da viagem"
+              style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+            />
+          </div>
+  
+          <!-- Campo Localização Inicial -->
+          <div style="margin-bottom: 20px; text-align: left; position: relative;">
+            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+              <ion-icon name="location" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
+              <label for="localizacao-inicial" style="color: #555; font-size: 1rem;">Localização inicial</label>
+            </div>
+            <input
+              type="text"
+              id="localizacao-inicial"
+              placeholder="Digite a localização inicial"
+              style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+            />
+          </div>
+  
+          <!-- Campo Localização Final -->
+          <div style="margin-bottom: 20px; text-align: left; position: relative;">
+            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+              <ion-icon name="location" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
+              <label for="localizacao-final" style="color: #555; font-size: 1rem;">Localização final</label>
+            </div>
+            <input
+              type="text"
+              id="localizacao-final"
+              placeholder="Digite a localização final"
+              style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+            />
+          </div>
+  
+          <!-- Campo Número de Pessoas -->
+          <div style="margin-bottom: 20px; text-align: left; position: relative;">
+            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+              <ion-icon name="people" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
+              <label for="numero-pessoas" style="color: #555; font-size: 1rem;">Número de pessoas</label>
+            </div>
+            <input
+              type="number"
+              id="numero-pessoas"
+              placeholder="Digite o número de pessoas"
+              style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+            />
+          </div>
+  
+          <!-- Campos de Data de Início e Data Final -->
+          <div style="display: flex; justify-content: space-between; gap: 10px; margin-bottom: 20px;">
+            <!-- Campo Data de Início -->
+            <div style="flex: 1; text-align: left; position: relative;">
+              <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                <ion-icon name="calendar" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
+                <label for="data-inicio" style="color: #555; font-size: 1rem;">Data de início</label>
+              </div>
+              <input
+                type="date"
+                id="data-inicio"
+                style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+              />
+            </div>
+  
+            <!-- Campo Data Final -->
+            <div style="flex: 1; text-align: left; position: relative;">
+              <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                <ion-icon name="calendar" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
+                <label for="data-final" style="color: #555; font-size: 1rem;">Data final</label>
+              </div>
+              <input
+                type="date"
+                id="data-final"
+                style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+              />
+            </div>
+          </div>
+  
+          <!-- Campo Budget -->
+          <div style="margin-bottom: 20px; text-align: left; position: relative;">
+            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+              <ion-icon name="cash" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
+              <label for="budget" style="color: #555; font-size: 1rem;">Budget</label>
+            </div>
+            <input
+              type="number"
+              id="budget"
+              placeholder="Digite o orçamento"
+              style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+            />
+          </div>
+  
+          <!-- Campo Descrição -->
+          <div style="margin-bottom: 20px; text-align: left; position: relative;">
+            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+              <ion-icon name="document" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
+              <label for="descricao" style="color: #555; font-size: 1rem;">Descrição</label>
+            </div>
+            <textarea
+              id="descricao"
+              placeholder="Digite a descrição da viagem"
+              style="width: 100%; padding: 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC; height: 100px; resize: none;"
+            ></textarea>
+          </div>
+  
+          <!-- Botão Adicionar -->
+          <div style="text-align: center;">
+            <button style="background-color: red; color: white; border: none; border-radius: 5px; padding: 10px 20px; font-size: 1rem; cursor: pointer;">
+              Adicionar
+            </button>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </ion-tab>
+  
+  
+  <ion-tab tab="search">
+    <div id="search-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Search</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding" fullscreen>
+        <div class="example-content">Search content</div>
+      </ion-content>
+    </div>
+  </ion-tab>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-tab-bar slot="bottom" style="background-color: #f4f4f4; border-top: 1px solid #ccc;">
+    <ion-tab-button tab="home">
+      <ion-icon name="home" style="color: red;"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="radio">
+      <ion-icon name="play-circle"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="library">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="search">
+      <ion-icon name="person-circle"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

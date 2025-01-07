@@ -1,27 +1,45 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-tabs {
+  background-color: white;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+#home-page, #radio-page, #library-page, #search-page {
+  background-color: white;
+}
+ion-toolbar {
+  --background: #ffffff; // Fundo branco
+}
+ion-content {
+  --background: #ffffff; // Fundo branco
+}
+ion-title {
+  color: black;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+.btn-order {
+  background-color: transparent; // Fundo transparente ou branco (opcional)
+  color: white;                  // Cor do texto preta
+  border: 1px solid white;       // Borda preta para destaque
+  padding: 8px 16px;             // Espaçamento interno
+  border-radius: 8px;            // Bordas arredondadas
+  margin-top: 8px;               // Margem superior
+  font-size: 16px;               // Tamanho da fonte
+  cursor: pointer;               // Mostrar o cursor de clique
 }
 
-#container a {
-  text-decoration: none;
+h2, h3, p {
+  color: black;                  // Texto em preto para títulos e parágrafos
+}
+
+button {
+  background-color: white; // Fundo transparente
+  color: black;                  // Cor do texto preta
+  border: 1px solid black;       // Borda preta para consistência
+  border-radius: 8px;            // Bordas arredondadas
+  padding: 8px 16px;             // Padding para espaçamento interno
+  font-size: 16px;               // Tamanho da fonte
+  cursor: pointer;               // Mostrar o cursor ao passar sobre o botão
+}
+
+div {
+  background-color: white;                  // Certifica-se de que o texto dentro de divs esteja em preto
 }
