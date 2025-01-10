@@ -16,7 +16,7 @@ export class AuthService {
     this.init();
   }
  
-  private API_URL = 'https://localhost:7220/api/';
+  private API_URL = 'https://localhost:7274/api/';
   //private API_URL = 'https://api.gatekeeper.xiscard.eu/api/';
   async init() {
     await this.storage.create();
