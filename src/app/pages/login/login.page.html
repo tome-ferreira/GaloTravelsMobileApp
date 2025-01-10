@@ -1,0 +1,53 @@
+<ion-content class="ion-padding" style="text-align: center;">
+  <!-- Logo -->
+  <img
+    src="assets/LogoWBackground.png"
+    style="width: 200px; height: auto; margin: 30px auto 20px;"
+  />
+
+  <!-- Nome e Título -->
+  <h2 style="font-weight: bold; margin-top: 10px; color: #000; font-size: 1.8rem;">
+    Login
+  </h2>
+
+  <!-- Campos de Entrada -->
+  <div style="max-width: 400px; margin: 20px auto;">
+    <!-- Novo Campo Email -->
+    <div style="margin-bottom: 20px; text-align: left; position: relative;">
+      <div style="display: flex; align-items: center; margin-bottom: 5px;">
+        <ion-icon name="mail" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
+        <label for="email" style="color: #555; font-size: 1rem;">Email</label>
+      </div>
+      <input
+        type="email"
+        id="email"
+        style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+      />
+    </div>
+
+    <!-- Novo Campo Password -->
+    <div style="margin-bottom: 20px; text-align: left; position: relative;">
+      <div style="display: flex; align-items: center; margin-bottom: 5px;">
+        <ion-icon name="lock-closed" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
+        <label for="password" style="color: #555; font-size: 1rem;">Password</label>
+      </div>
+      <input
+        type="password"
+        id="password"        
+        style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+      />
+    </div>
+  </div>
+
+  <!-- Botão de Login -->
+  <button
+    style="background-color: #d32f2f; color: white; font-size: 1rem; border-radius: 30px; height: 50px; width: 100%; border: none; font-weight: 600; margin-top: 20px; transition: background-color 0.3s ease; display: inline-block;">
+    Login
+  </button>
+
+  <!-- Link de Recuperação -->
+  <p style="margin-top: 20px; font-size: 0.9rem; color: #333;">
+    Esqueceste da palavra-passe?
+    <a href="#" style="color: #d32f2f; text-decoration: none;">Clica aqui</a>
+  </p>
+</ion-content>

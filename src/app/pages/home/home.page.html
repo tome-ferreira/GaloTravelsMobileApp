@@ -1,20 +1,239 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-tabs>
+  <ion-tab tab="home">
+    <div id="home-page">
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>
+            <img src="/src/assets/Logo.jpg" alt="User" class="user-logo">
+            <span class="greeting">Olá User</span>
+          </ion-title>
+        </ion-toolbar>
+      </ion-header>
+  
+      <ion-content class="ion-padding" fullscreen>
+        <div>
+          <div class="travel-header">
+            <h2>Minhas Viagens</h2>
+            <button class="btn-order">Ordenar por:</button>
+          </div>
+  
+          <div class="travel-card-container">
+            <!-- Barcelos Card -->
+            <div class="travel-card">
+              <img src="barcelos.jpg" alt="" class="travel-image">
+              <div>
+                <h3>BARCELOS</h3>
+                <p>Nesta viagem vou ver as luzes de natal e se tivermos tempo vou à Vicentina.</p>
+              </div>
+            </div>
+  
+            <!-- Dubai Card -->
+            <div class="travel-card reverse">
+              <img src="dubai.jpg" alt="Dubai" class="travel-image">
+              <div>
+                <h3>DUBAI</h3>
+                <p>Vou pegar no meu Bugatti e corre-lo em Abu Dhabi. Depois vou po yacht.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </ion-tab>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  <ion-tab tab="radio">
+    <div id="radio-page">
+      <ion-header>
+        <ion-toolbar>
+          <div class="radio-header">
+            <div class="header-text">PARTILHADO COMIGO</div>
+            <button class="btn-order">Ordenar por:</button>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+  
+      <ion-content class="ion-padding" fullscreen>
+        <!-- Cartão 1: Barcelos -->
+        <div class="card">
+          <div class="card-content">
+            <img src="/src/assets/icon/favicon.png" alt="Barcelos" class="card-image">
+            <div class="card-details">
+              <h3>BARCELOS</h3>
+              <p>Nesta viagem vou ver as luzes de natal e se tivermos tempo vou á Vicentina.</p>
+              <div class="organizer">
+                <img src="organizer1.jpg" alt="Organizer" class="organizer-image">
+                <p>Organizador: Zeca Chifrudo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Cartão 2: Dubai -->
+        <div class="card">
+          <div class="card-content">
+            <img src="dubai.jpg" alt="Dubai" class="card-image">
+            <div class="card-details">
+              <h3>DUBAI</h3>
+              <p>Vou pegar no meu Bugatti e corre-lo em Abu Dhabi. Depois vou po yacht.</p>
+              <div class="organizer">
+                <img src="organizer2.jpg" alt="Organizer" class="organizer-image">
+                <p>Organizador:</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </ion-tab>
+
+  <ion-tab tab="library">
+    <div id="library-page">
+      <ion-header>
+        <ion-toolbar>
+          <div class="library-header">
+            <div class="header-text">ADICIONAR VIAGEM:</div>
+            <button class="btn-cancel">Cancelar</button>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+  
+      <ion-content class="ion-padding" fullscreen>
+        <div class="form-container">
+          <!-- Nome -->
+          <div class="input-field">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" placeholder="Digite o nome da viagem">
+          </div>
+  
+          <!-- Localização inicial -->
+          <div class="input-field">
+            <label for="localizacao-inicial">Localização inicial:</label>
+            <img src="map-inicial.jpg" alt="Mapa localização inicial" class="map-image">
+          </div>
+  
+          <!-- Localização final -->
+          <div class="input-field">
+            <label for="localizacao-final">Localização final:</label>
+            <img src="map-final.jpg" alt="Mapa localização final" class="map-image">
+          </div>
+  
+          <!-- Número de pessoas -->
+          <div class="input-field">
+            <label for="numero-pessoas">Número de pessoas:</label>
+            <input type="number" id="numero-pessoas" placeholder="Digite o número de pessoas">
+          </div>
+  
+          <!-- Data de início e final -->
+          <div class="input-row">
+            <div class="input-field">
+              <label for="data-inicio">Data de início:</label>
+              <input type="date" id="data-inicio">
+            </div>
+            <div class="input-field">
+              <label for="data-final">Data final:</label>
+              <input type="date" id="data-final">
+            </div>
+          </div>
+  
+          <!-- Orçamento -->
+          <div class="input-field">
+            <label for="budget">Budget:</label>
+            <input type="number" id="budget" placeholder="Digite o orçamento">
+          </div>
+  
+          <!-- Descrição -->
+          <div class="input-field">
+            <label for="descricao">Descrição:</label>
+            <textarea id="descricao" placeholder="Digite a descrição da viagem"></textarea>
+          </div>
+  
+          <!-- Botão Adicionar -->
+          <div class="input-submit">
+            <button class="btn-submit">Adicionar</button>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </ion-tab>
+  
+
+  <ion-tab tab="search">
+    <div id="search-page">
+      <ion-header>
+        <ion-toolbar>
+          <div class="search-header">
+            <h2>DETALHES DA VIAGEM:</h2>
+            <button class="btn-back">VOLTAR</button>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+  
+      <ion-content class="ion-padding" fullscreen>
+        <!-- Cartão de Viagem para Barcelos -->
+        <div class="travel-card barcelos">
+          <img src="path/to/barcelos-image.jpg" alt="Foto da viagem Barcelos" class="travel-image">
+          <div class="travel-info">
+            <div class="basic-info">
+              <p><strong>Nome:</strong> Barcelos</p>
+              <p><strong>Descrição:</strong> Viagem a Barcelos</p>
+            </div>
+            <div class="detail-row">
+              <p><strong>N. de Pessoas:</strong> 4</p>
+              <p><strong>Valor Pago:</strong> €200</p>
+            </div>
+            <div class="detail-row">
+              <p><strong>Data Início:</strong> 01/01/2025</p>
+              <p><strong>Data Fim:</strong> 07/01/2025</p>
+            </div>
+            <div class="detail-row">
+              <p><strong>Início de Viagem:</strong> 08:00</p>
+              <p><strong>Fim de Viagem:</strong> 18:00</p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- Cartão de Viagem para Dubai -->
+        <div class="travel-card dubai">
+          <img src="/src/assets/Logo.jpg" alt="Foto da viagem Dubai" class="travel-image">
+          <div class="travel-info">
+            <div class="basic-info">
+              <p><strong>Nome:</strong> Dubai</p>
+              <p><strong>Descrição:</strong> Viagem a Dubai</p>
+            </div>
+            <div class="detail-row">
+              <p><strong>N. de Pessoas:</strong> 2</p>
+              <p><strong>Valor Pago:</strong> €1500</p>
+            </div>
+            <div class="detail-row">
+              <p><strong>Data Início:</strong> 01/02/2025</p>
+              <p><strong>Data Fim:</strong> 10/02/2025</p>
+            </div>
+            <div class="detail-row">
+              <p><strong>Início de Viagem:</strong> 09:00</p>
+              <p><strong>Fim de Viagem:</strong> 20:00</p>
+            </div>
+          </div>
+        </div>
+      </ion-content>
+    </div>
+  </ion-tab>
+  
+  
+  
+
+  <ion-tab-bar slot="bottom" class="tab-bar">
+    <ion-tab-button tab="home">
+      <ion-icon name="home"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="radio">
+      <ion-icon name="play-circle"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="library">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-tab-button>
+    <ion-tab-button tab="search">
+      <ion-icon name="person-circle"></ion-icon>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
