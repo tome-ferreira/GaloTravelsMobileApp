@@ -3,6 +3,7 @@ import { Storage } from '@ionic/storage-angular';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { LoginInfo } from '../models/login-info.model';
 import { LoginResponse } from '../models/login-response.model';
+import { RegisterInfo } from '../models/register-info.model';
 
 @Injectable({
   providedIn: 'root',
@@ -51,6 +52,12 @@ export class AuthService {
   login(credentials: LoginInfo) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     var response = this.http.post<LoginResponse>(`${this.API_URL}Account/Login`, credentials, { headers });
+    return response;
+  }
+
+  register(credentials: RegisterInfo) {
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    var response = this.http.post<LoginResponse>(`${this.API_URL}Account/Register`, credentials, { headers });
     return response;
   }
 
