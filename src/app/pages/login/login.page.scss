@@ -1,5 +1,4 @@
 ion-content {
-  --background: #ffffff; // Fundo branco
   text-align: center;
 
   // Logo
@@ -13,74 +12,79 @@ ion-content {
   .title {
     font-size: 1.8rem;
     font-weight: bold;
-    color: #000;
     margin-bottom: 20px;
   }
 
-  // Container de inputs
-  .input-container {
+  // Form Container
+  .form-container {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 20px auto;
+  }
+
+  // Input Container
+  .input-container {
+    margin-bottom: 20px;
+    text-align: left;
 
     .input-group {
-      margin-bottom: 10px; // Ajusta o espaçamento
-      text-align: left;
       display: flex;
-      align-items: center; // Alinha ícone e label na mesma linha
-      position: relative;
+      align-items: center; 
+      margin-bottom: 5px;
 
       ion-icon {
-        margin-right: 10px; // Espaço entre o ícone e a label
-        color: #aaa; // Cor do ícone
-        font-size: 1.2rem; // Tamanho do ícone
-        position: absolute; // Coloca o ícone dentro do campo de texto
-        left: 10px; // Coloca o ícone na posição inicial
-        top: 12px; // Ajusta a posição vertical
+        font-size: 1.2rem;
+        margin-right: 10px;
       }
 
       label {
-        font-size: 0.9rem;
-        color: #000; // Label a preto
-        margin-right: 10px; // Espaço entre o label e o campo de input
+        font-size: 1rem;
       }
     }
 
     .custom-input {
       width: 100%;
-      padding: 10px;
+      padding: 10px 10px 10px 20px;
       font-size: 1rem;
-      color: #333; // Cor do texto digitado
-      border: 1px solid #ccc; // Borda cinza
+      border: 1px solid var(--ion-color-medium); 
       border-radius: 5px;
-      background-color: #DCDCDC; // Cor de fundo cinza claro
+      background-color: var(--ion-color-light); 
       box-sizing: border-box;
-      margin-bottom: 20px; // Espaçamento abaixo do campo
 
       &:focus {
         outline: none;
-        border-color: #000; // Mantém a borda preta no foco
+        border-color: var(--ion-color-primary); 
       }
 
       ::placeholder {
-        color: #aaa; // Cor do texto do placeholder
+        color: var(--ion-color-medium); 
       }
+    }
+
+    .error-message {
+      color: var(--ion-color-danger); 
+      font-size: 0.8rem;
+      margin-top: 5px;
     }
   }
 
   // Botão de Login
   .login-button {
-    background-color: #d32f2f; // Cor de fundo vermelha do botão
-    color: white; // Cor do texto do botão
+    background-color: var(--ion-color-primary); 
     font-size: 1rem;
-    border-radius: 30px;  // Borda mais arredondada
-    height: 50px; // Altura maior para um formato mais largo
-    width: 100%; // Largura total
-    border: none; // Sem borda
-    font-weight: 600; // Peso da fonte mais forte
-    transition: background-color 0.3s ease; // Transição suave no hover
+    border-radius: 30px; 
+    height: 50px;
+    width: 100%;
+    border: none;
+    font-weight: 600; 
+    transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #b71c1c; // Alteração suave na cor ao passar o mouse
+      background-color: var(--ion-color-danger-shade); 
+    }
+
+    &:disabled {
+      background-color: var(--ion-color-medium); 
+      color: var(--ion-color-light); 
     }
   }
 
@@ -88,10 +92,9 @@ ion-content {
   .recovery-text {
     margin-top: 20px;
     font-size: 0.9rem;
-    color: #333;
 
     .recovery-link {
-      color: #d32f2f;
+      color: var(--ion-color-primary); 
       text-decoration: none;
 
       &:hover {
@@ -100,3 +103,4 @@ ion-content {
     }
   }
 }
+

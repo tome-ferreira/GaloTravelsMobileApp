@@ -2,49 +2,49 @@
   <!-- Logo -->
   <img
     src="assets/LogoWBackground.png"
-    style="width: 200px; height: auto; margin: 30px auto 20px;"
+    class="logo"
   />
 
   <!-- Nome e Título -->
-  <h2 style="font-weight: bold; margin-top: 10px; color: #000; font-size: 1.8rem;">
+  <h2 class="title">
     Login
   </h2>
 
   <!-- Reactive Form -->
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="max-width: 400px; margin: 20px auto;">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-container">
     <!-- Email Field -->
-    <div style="margin-bottom: 20px; text-align: left; position: relative;">
-      <div style="display: flex; align-items: center; margin-bottom: 5px;">
-        <ion-icon name="mail" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
-        <label for="email" style="color: #555; font-size: 1rem;">Email</label>
+    <div class="input-container">
+      <div class="input-group">
+        <ion-icon name="mail"></ion-icon>
+        <label for="email">Email</label>
       </div>
       <input
         type="email"
         id="email"
         formControlName="email"
-        style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+        class="custom-input"
       />
       <!-- Error Message -->
-      <p *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" style="color: red; font-size: 0.8rem; margin-top: 5px;">
-        Please enter a valid email address.
+      <p *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="error-message">
+        Por favor utilizae um formato de email válido
       </p>
     </div>
 
     <!-- Password Field -->
-    <div style="margin-bottom: 20px; text-align: left; position: relative;">
-      <div style="display: flex; align-items: center; margin-bottom: 5px;">
-        <ion-icon name="lock-closed" style="color: #aaa; font-size: 1.2rem; margin-right: 10px;"></ion-icon>
-        <label for="password" style="color: #555; font-size: 1rem;">Password</label>
+    <div class="input-container">
+      <div class="input-group">
+        <ion-icon name="lock-closed"></ion-icon>
+        <label for="password">Password</label>
       </div>
       <input
         type="password"
         id="password"
         formControlName="password"
-        style="width: 100%; padding: 10px 10px 10px 20px; font-size: 1rem; border: 1px solid #ccc; border-radius: 5px; background-color: #DCDCDC;"
+        class="custom-input"
       />
       <!-- Error Message -->
-      <p *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" style="color: red; font-size: 0.8rem; margin-top: 5px;">
-        Password must be at least 6 characters long.
+      <p *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid" class="error-message">
+        A password deve ter pelo menos 6 caractéres
       </p>
     </div>
 
@@ -52,15 +52,14 @@
     <button
       type="submit"
       [disabled]="loginForm.invalid"
-      style="background-color: #d32f2f; color: white; font-size: 1rem; border-radius: 30px; height: 50px; width: 100%; border: none; font-weight: 600; margin-top: 20px; transition: background-color 0.3s ease; display: inline-block;">
+      class="login-button">
       Login
     </button>
   </form>
 
   <!-- Forgot Password Link -->
-  <p style="margin-top: 20px; font-size: 0.9rem; color: #333;">
+  <p class="recovery-text">
     Não tem conta?
-    <a (click)="goToRegister()" style="color: #d32f2f; text-decoration: none;">Crie uma</a>
+    <a (click)="goToRegister()" class="recovery-link">Crie uma</a>
   </p>
 </ion-content>
-
