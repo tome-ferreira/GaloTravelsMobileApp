@@ -43,7 +43,7 @@ export class RegisterPage implements OnInit {
 
         await this.authService.setToken(response.token);
         console.log('Login bem sucedido ', response);
-        await this.authService.setRememberUser(false);
+        await this.authService.setRememberUser(true);
         loading.dismiss();
         this.router.navigate(['/home']);
       },
