@@ -6,4 +6,49 @@ ion-content {
       padding: 16px; 
       
   }
+
+
+  .empty-message {
+    text-align: center;
+    color: #6c757d;
+  }
+  
+  .empty-message ion-icon {
+    display: block;
+    margin: 10px auto;
+    color: #b0bec5;
+  }
+  
+  .empty-message h2 {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  
+  .empty-message p {
+    font-size: 0.9em;
+  }
+  
+}
+
+
+
+
+.empty-message {
+  text-align: center;
+  color: #6c757d;
+}
+
+.empty-message ion-icon {
+  display: block;
+  margin: 10px auto;
+  color: #b0bec5;
+}
+
+.empty-message h2 {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.empty-message p {
+  font-size: 0.9em;
 }

@@ -6,6 +6,7 @@ import { RecieveTravelComment } from '../models/recieve-travel-comment.model';
 import { PassTravelComment } from '../models/pass-travel-comment.model';
 import { RecieveTravelLocationComment } from '../models/recive-travel-location-comment.model';
 import { PassTravelLocationComment } from '../models/pass-travel-location.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -18,8 +19,7 @@ export class CommentsService {
       private router: Router
     ) { }
   
-    private API_URL = 'https://localhost:7274/api/';
-    //private API_URL = 'https://api.gatekeeper.xiscard.eu/api/';
+    private API_URL = environment.apiUrl;
 
 
     async getTravelsComments(id: string){

@@ -87,11 +87,19 @@
                     <span>Editar</span>
                   </a>
                   <a 
-                    >
+                    (click)="openShareTravelModal(travel)">
                     <ion-icon name="share-social-outline"></ion-icon>
                     <span>Partilhar</span>
                   </a>
                 </div>
+              </ion-label>
+            </ion-item>
+
+            <ion-item lines="none" *ngIf="!TravlesList || TravlesList.length === 0">
+              <ion-label class="empty-message">
+                <ion-icon name="sad-outline" size="large"></ion-icon>
+                <h2>Não há viagens criadas!</h2>
+                <p>Clique em "Criar viagem" para começar.</p>
               </ion-label>
             </ion-item>
           </ion-list>
@@ -114,11 +122,47 @@
     <div id="library-page">
       <ion-header>
         <ion-toolbar>
-          <ion-title>Library</ion-title>
+          <ion-title>Partilhadas comigo</ion-title>
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding" [fullscreen]="true">
-        <div class="example-content">Library content</div>
+        <div class="example-content">
+          <ion-list lines="none">
+            <ion-item lines="none" *ngFor="let travel of SharedTravelsList">
+              <ion-label class="list-member-travel">
+                <div class="travel-header">
+                  <h2>{{ travel.name }}</h2>
+                </div>
+                <div class="travel-times">
+                  <h2>{{ travel.startDate | date:'dd/MM/yyyy' }} - {{ travel.endDate | date:'dd/MM/yyyy' }}</h2>
+                </div>
+                <div class="travel-times">
+                  <h2>{{ travel.startLocation }} - {{ travel.endLocation }}</h2>
+                </div>
+                
+                <div class="travel-icons">
+                  <a
+                    (click)="openTravelDetail(travel)">
+                    <ion-icon name="list-outline"></ion-icon>
+                    <span>Detalhes</span>
+                  </a>
+                  
+                </div>
+              </ion-label>
+            </ion-item>
+
+
+
+            <ion-item lines="none" *ngIf="!SharedTravelsList || SharedTravelsList.length === 0">
+              <ion-label class="empty-message">
+                <ion-icon name="information-circle-outline" size="large"></ion-icon>
+                <h2>Nenhuma viagem partilhada!</h2>
+                <p>Aguardando partilhas de outros utilizadores.</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+
       </ion-content>
     </div>
   </ion-tab>
@@ -135,11 +179,27 @@
     <div id="search-page">
       <ion-header>
         <ion-toolbar>
-          <ion-title>Search</ion-title>
+          <ion-title>Definições</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content class="ion-padding" [fullscreen]="true">
-        <div class="example-content">Search content</div>
+      <ion-content class="ion-padding" [fullscreen]="true" class="content-center">
+        <img src="assets/LogoWBackground.png" class="logo" />
+
+
+        <h6 class="title">Versão da App: {{ appVersion }}</h6>
+        
+
+        <div class="example-content">
+          <ion-button expand="block" (click)="logout()" class="button w-100"><ion-icon name="log-out-outline"></ion-icon>|  Logout</ion-button>
+        </div>
+
+        <div class="example-content">
+          <ion-button expand="block" (click)="openPrivacyPolicyModalModal()" class="button w-100"><ion-icon name="document-lock-outline"></ion-icon>|  Política de privacidade</ion-button>
+        </div>
+
+        <div class="example-content">
+          <ion-button expand="block" (click)="openUsageTermsModalModal()" class="button w-100"><ion-icon name="accessibility-outline"></ion-icon>|  Termos de uso</ion-button>
+        </div>
       </ion-content>
     </div>
   </ion-tab>
@@ -166,11 +226,11 @@
     </ion-tab-button>
     <ion-tab-button tab="library">
       <ion-icon name="add-circle"></ion-icon>
-      3
+      Partilhadas
     </ion-tab-button>
     <ion-tab-button tab="search">
-      <ion-icon name="person-circle"></ion-icon>
-      4
+      <ion-icon name="cog-outline"></ion-icon>
+      Definições
     </ion-tab-button>
   </ion-tab-bar>
 </ion-tabs>

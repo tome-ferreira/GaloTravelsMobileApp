@@ -1,9 +1,15 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { App } from '@capacitor/app';
 import { ModalController } from '@ionic/angular';
 import { CreateTravelModalComponent } from 'src/app/modals/create-travel-modal/create-travel-modal.component';
 import { DetailTravelModalComponent } from 'src/app/modals/detail-travel-modal/detail-travel-modal.component';
 import { EditTravelModalComponent } from 'src/app/modals/edit-travel-modal/edit-travel-modal.component';
+import { PrivacyPolicyModalComponent } from 'src/app/modals/privacy-policy-modal/privacy-policy-modal.component';
+import { ShareModalComponent } from 'src/app/modals/share-modal/share-modal.component';
+import { UsageTermsModalComponent } from 'src/app/modals/usage-terms-modal/usage-terms-modal.component';
 import { Travel } from 'src/app/models/travel.model';
+import { AuthService } from 'src/app/services/auth.service';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { TravelService } from 'src/app/services/travel.service';
 
@@ -15,33 +21,50 @@ import { TravelService } from 'src/app/services/travel.service';
 export class HomePage implements OnInit{
 
   TravlesList: any;
+  SharedTravelsList: any;
   momentDateTime: Date;
   today: Date;
   travelToday: any;
+  appVersion: string = '';
 
   constructor(
     private modalCtrl: ModalController, 
     private travelService: TravelService,
-    private functions: FunctionsService
+    private functions: FunctionsService,
+    private authService: AuthService,
+    private router: Router
   ) {
     this.momentDateTime = new Date();
     this.today = new Date();
   }
 
-  async ngOnInit(){
-    const loading = await this.functions.showLoading();
+  async ionViewWillEnter() {
+    await this.loadPageData();
+  }
 
+  async ngOnInit() {
+    await this.loadPageData();
+  }
+
+  private async loadPageData() {
+    const loading = await this.functions.showLoading();
     try {
       await Promise.all([
         this.loadTravels(),
-        this.loadTravelsToday()
+        this.loadTravelsToday(),
+        this.loadSharedTravels()
       ]);
     } catch (error) {
       console.error('Error loading data:', error);
     } finally {
       loading.dismiss();
     }
+
+    App.getInfo().then(info => {
+      this.appVersion = info.version;
+    });
   }
+
 
   async loadTravelsToday(){
     try{
@@ -103,9 +126,18 @@ export class HomePage implements OnInit{
   async loadTravels(){
     try{
       this.TravlesList = await this.travelService.getTravels();
-      console.log(this.TravlesList);
+      //console.log(this.TravlesList);
     }catch(error){
       await this.functions.presentToast(`Erro ao carregar viagens`, `danger`);
+    }
+  }
+
+  async loadSharedTravels(){
+    try{
+      this.SharedTravelsList = await this.travelService.getSharedTravels();
+      //console.log(this.TravlesList);
+    }catch(error){
+      await this.functions.presentToast(`Erro ao carregar viagens partilhadas`, `danger`);
     }
   }
 
@@ -127,6 +159,14 @@ export class HomePage implements OnInit{
   async openTravelDetail(travel: Travel) {
     const modal = await this.modalCtrl.create({
       component: DetailTravelModalComponent,
+      componentProps: { travel },
+    });
+    await modal.present();
+  }
+
+  async openShareTravelModal(travel: Travel) {
+    const modal = await this.modalCtrl.create({
+      component: ShareModalComponent,
       componentProps: { travel },
     });
     await modal.present();
@@ -155,14 +195,40 @@ export class HomePage implements OnInit{
 
 
 
+  async logout() {
+    await this.authService.clearToken();
+    await this.authService.clearPreferences();
+    //await this.authService.clearCompany(); 
+    this.router.navigate(['/login']); 
+  }
 
 
+ 
 
 
+  async openPrivacyPolicyModalModal() {
+    const modal = await this.modalCtrl.create({
+      component: PrivacyPolicyModalComponent,
+    });
+    await modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+  }
 
 
+  async openUsageTermsModalModal() {
+    const modal = await this.modalCtrl.create({
+      component: UsageTermsModalComponent,
+    });
+    await modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+  }
 
 
+  
 }
 
 

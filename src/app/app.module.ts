@@ -14,6 +14,9 @@ import { DetailTravelModalComponent } from './modals/detail-travel-modal/detail-
 import { EditTravelModalComponent } from './modals/edit-travel-modal/edit-travel-modal.component';
 import { AddTravelLocationModalComponent } from './modals/add-travel-location-modal/add-travel-location-modal.component';
 import { TravelLocationCommentsModalComponent } from './modals/travel-location-comments-modal/travel-location-comments-modal.component';
+import { PrivacyPolicyModalComponent } from './modals/privacy-policy-modal/privacy-policy-modal.component';
+import { UsageTermsModalComponent } from './modals/usage-terms-modal/usage-terms-modal.component';
+import { ShareModalComponent } from './modals/share-modal/share-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { TravelLocationCommentsModalComponent } from './modals/travel-location-c
     DetailTravelModalComponent,
     EditTravelModalComponent,
     AddTravelLocationModalComponent,
-    TravelLocationCommentsModalComponent
+    TravelLocationCommentsModalComponent,
+    PrivacyPolicyModalComponent,
+    UsageTermsModalComponent,
+    ShareModalComponent
   ],
   imports: [
     BrowserModule, 
