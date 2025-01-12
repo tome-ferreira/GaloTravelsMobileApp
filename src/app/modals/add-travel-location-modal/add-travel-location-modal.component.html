@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>Adicionar local</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="input-container">
+    <ion-input
+      type="text"
+      [(ngModel)]="inputText"
+      placeholder="Digite ou selecione um local"
+    ></ion-input>
+    <ion-button color="danger" (click)="save()">Adicionar</ion-button>
+  </div>
+
+  
+
+  
+
+
+
+  <ion-list>
+    <ion-item *ngFor="let location of Locs" class="location-item" lines="none">
+      <ion-label lines="none">
+        <h2>{{ location.name }}</h2>
+      </ion-label>
+      <a (click)="selectLocation(location.name)"><ion-icon slot="end" name="add-outline"></ion-icon></a>
+    </ion-item>
+  </ion-list>
+
+
+
+
+
+
+</ion-content>

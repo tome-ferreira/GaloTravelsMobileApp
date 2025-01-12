@@ -8,6 +8,8 @@
 </ion-header>
 
 <ion-content>
+
+  <!--Viagem-->
   <ion-card *ngIf="travel">
     <ion-card-header>
       <ion-card-title>{{ travel.name }}</ion-card-title>
@@ -21,4 +23,53 @@
       <p><strong>Orçamento total:</strong> {{ travel.totalBudget | currency:'EUR' }}</p>
     </ion-card-content>
   </ion-card>
+
+  <!--Locais de interesse-->
+  <ion-card *ngIf="travel">
+    <ion-card-header>
+      <ion-card-title>Locais de Interesse</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let location of Locs" class="location-item" lines="none">
+          <ion-label lines="none">
+            <h2>{{ location.name }}</h2>
+          </ion-label>
+          <a (click)="openTravelLocationCommentsModal(location)"><ion-icon slot="end" name="chatbubble-outline"></ion-icon></a>
+        </ion-item>
+      </ion-list>
+      <p *ngIf="!Locs?.length" class="no-locations">
+        Não existem locais de interesse registrados para esta viagem.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+  <!--Comentarios-->
+  <ion-card *ngIf="travel">
+    <ion-card-header>
+      <ion-card-title>Comentários</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="input-container">
+        <ion-input
+          type="text"
+          [(ngModel)]="commentText"
+          placeholder="Faça um comentário"
+        ></ion-input>
+        <ion-button expand="block" (click)="post()">Publicar</ion-button>
+      </div>
+
+      <ion-list>
+        <div *ngFor="let com of Comments" class="comment-item" lines="none">
+          <p><strong>{{ com.userName }} - {{ getTimeAgo(com.madeAt) }}</strong></p>
+          <p> {{ com.content }}</p>
+        </div>
+      </ion-list>
+      <p *ngIf="!Comments?.length" class="no-locations">
+        Não existem comentários nesta viagem. Inicie a conversa!
+      </p>
+    </ion-card-content>
+  </ion-card>
+  
 </ion-content>
+

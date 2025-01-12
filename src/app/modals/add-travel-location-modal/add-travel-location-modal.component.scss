@@ -1,0 +1,27 @@
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  
+    ion-input {
+      flex: 1;
+      margin-right: 10px;
+      --background: #000;
+      --color: #fff;
+      --placeholder-color: #888;
+    }
+  
+    ion-button {
+      --background: #ff3b30;
+      --color: #fff;
+    }
+  }
+  
+  .location-item {
+    --background: #000;
+    --color: #fff;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  

@@ -11,7 +11,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <form [formGroup]="travelForm" (ngSubmit)="submit()">
+  <form [formGroup]="travelForm" (ngSubmit)="submit()" class="ion-padding">
     <ion-item lines="none">
       <ion-label position="stacked">Nome</ion-label>
       <ion-input formControlName="name" type="text" class="input-costum"></ion-input>
@@ -60,10 +60,45 @@
       <ion-input formControlName="totalBudget" type="number" class="input-costum"></ion-input>
     </ion-item>
 
+
+   
+    
+    
+     
+
     <ion-footer>
       <ion-button expand="full" type="submit" [disabled]="!travelForm.valid" class="button">
         Guardar Alterações
       </ion-button>
     </ion-footer>
   </form>
+
+
+  
+
+
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Locais de Interesse</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-button expand="block" (click)="openAddTravelLocationModal(travel)" class="button w-100">
+        Adicionar Local de Interesse
+      </ion-button>
+      <ion-list>
+        <ion-item *ngFor="let location of Locs" class="location-item" lines="none">
+          <ion-label lines="none">
+            <h2>{{ location.name }}</h2>
+          </ion-label>
+          <ion-icon slot="end" name="trash-outline" color="danger" (click)="deleteTravelLocation(location.id)"></ion-icon>
+        </ion-item>
+      </ion-list>
+      <p *ngIf="!Locs?.length" class="no-locations">
+        Não existem locais de interesse registrados para esta viagem.
+      </p>
+    </ion-card-content>
+  </ion-card>
+
+
 </ion-content>

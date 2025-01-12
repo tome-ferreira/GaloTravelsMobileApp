@@ -12,13 +12,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateTravelModalComponent } from './modals/create-travel-modal/create-travel-modal.component';
 import { DetailTravelModalComponent } from './modals/detail-travel-modal/detail-travel-modal.component';
 import { EditTravelModalComponent } from './modals/edit-travel-modal/edit-travel-modal.component';
+import { AddTravelLocationModalComponent } from './modals/add-travel-location-modal/add-travel-location-modal.component';
+import { TravelLocationCommentsModalComponent } from './modals/travel-location-comments-modal/travel-location-comments-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateTravelModalComponent,
     DetailTravelModalComponent,
-    EditTravelModalComponent
+    EditTravelModalComponent,
+    AddTravelLocationModalComponent,
+    TravelLocationCommentsModalComponent
   ],
   imports: [
     BrowserModule, 

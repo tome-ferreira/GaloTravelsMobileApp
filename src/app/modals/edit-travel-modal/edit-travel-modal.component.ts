@@ -4,6 +4,7 @@ import { AlertController, ModalController } from '@ionic/angular';
 import { Travel } from 'src/app/models/travel.model';
 import { FunctionsService } from 'src/app/services/functions.service';
 import { TravelService } from 'src/app/services/travel.service';
+import { AddTravelLocationModalComponent } from '../add-travel-location-modal/add-travel-location-modal.component';
 
 @Component({
   selector: 'app-edit-travel-modal',
@@ -14,6 +15,7 @@ export class EditTravelModalComponent  implements OnInit {
 
   @Input() travel!: Travel; 
   travelForm!: FormGroup;
+  Locs: any;
 
   constructor(
     private modalCtrl: ModalController,
@@ -23,7 +25,7 @@ export class EditTravelModalComponent  implements OnInit {
     private alertCtrl: AlertController
   ) {}
 
-  ngOnInit() {
+  async ngOnInit() {
     
     this.travelForm = this.fb.group(
       {
@@ -38,6 +40,8 @@ export class EditTravelModalComponent  implements OnInit {
       },
       { validators: this.futureDateValidation }
     );
+
+    await this.getTravelLocs();
   }
 
   
@@ -68,6 +72,14 @@ export class EditTravelModalComponent  implements OnInit {
 
   cancel() {
     return this.modalCtrl.dismiss(null, 'cancel');
+  }
+
+  async getTravelLocs(){
+    try{
+      this.Locs = await this.travelService.getTravelsTravelLocations(this.travel.id);
+    }catch(error){
+      await this.functions.presentToast(`Erro ao carregar Localizações`, `danger`);
+    }
   }
 
   async submit() {
@@ -135,6 +147,83 @@ export class EditTravelModalComponent  implements OnInit {
   async deleteTravel(id: string){
     try{
       await this.travelService.deleteTravel(id);
+    }catch (error){
+      await this.functions.presentToast(`Erro ao apagar justificação`, `danger`);
+    }
+  }
+
+
+  async openAddTravelLocationModal(Travel: Travel){
+    const id = Travel.id;
+
+    const modal = await this.modalCtrl.create({
+      component: AddTravelLocationModalComponent,
+      componentProps: { id },
+    });
+    await modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    if (role === 'save') {
+      const loading = await this.functions.showLoading();
+      await this.getTravelLocs();
+      loading.dismiss();
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  async deleteTravelLocation(id: string) {
+    const alert = await this.alertCtrl.create({
+      header: 'Confirmação',
+      message: 'Tem certeza de que deseja apagar este local de interesse? Esta ação não pode ser desfeita.',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            
+          },
+        },
+        {
+          text: 'Apagar',
+          handler: async () => {
+            try {
+              const loading = await this.functions.showLoading();
+              await this.deleteTravelLocationService(id);
+              await this.getTravelLocs();
+              loading.dismiss();
+            } catch (error: any) {
+              await this.functions.presentToast(error.error, 'danger');
+            }
+          },
+        },
+      ],
+    });
+  
+    await alert.present();
+  }
+
+
+  async deleteTravelLocationService(id: string){
+    try{
+      await this.travelService.deleteTravelLocation(id);
     }catch (error){
       await this.functions.presentToast(`Erro ao apagar justificação`, `danger`);
     }

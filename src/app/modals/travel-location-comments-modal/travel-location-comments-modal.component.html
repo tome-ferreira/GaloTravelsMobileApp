@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Fechar</ion-button>
+    </ion-buttons>
+    <ion-title>Detalhes local de interesse</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngIf="travelLocation">
+    <ion-card-header>
+      <ion-card-title>{{travelLocation.name}} - Comentários</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <div class="input-container">
+        <ion-input
+          type="text"
+          [(ngModel)]="commentText"
+          placeholder="Faça um comentário"
+        ></ion-input>
+        <ion-button expand="block"  (click)="post()">Publicar</ion-button>
+      </div>
+  
+      <ion-list>
+        <div *ngFor="let com of Comments" class="comment-item" lines="none">
+          <p><strong>{{ com.userName }} - {{ getTimeAgo(com.madeAt) }}</strong></p>
+          <p> {{ com.content }}</p>
+        </div>
+      </ion-list>
+      <p *ngIf="!Comments?.length" class="no-locations">
+        Não existem comentários nesta viagem. Inicie a conversa!
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
