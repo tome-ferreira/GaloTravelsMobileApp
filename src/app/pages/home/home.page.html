@@ -9,8 +9,36 @@
         </ion-toolbar>
       </ion-header>
       <ion-content class="ion-padding" [fullscreen]="true">
-        <div class="example-content">Listen now content</div>
-      </ion-content>
+        <h2 class="center-title">Calendário de viagens</h2>
+          <div class="containner">
+            <div style="display: flex; align-items: center; justify-content: center;">
+              <!-- Previous  -->
+              <ion-button expand="block" class="button" style="flex: 0 0 auto; margin-right: 10px;" (click)="Previous()">&lt;</ion-button>
+              
+              <!-- Date -->
+              <div style="flex: 1; text-align: center; font-weight: bold;">
+                {{ getDateLabel() }}
+              </div>
+              <!-- Next  -->
+              <ion-button expand="block" class="button" style="flex: 0 0 auto; margin-left: 10px;" (click)="Next()">&gt;</ion-button>
+            </div>
+
+            <ion-list>
+              <ion-item lines="none" *ngFor="let travel of travelToday">
+                <ion-label lines="none" class="a-simple list-member">
+                  <h2>{{ travel.name }}</h2>
+                  <h2>{{ travel.startDate | date:'dd/MM/yyyy' }} - {{ travel.endDate | date:'dd/MM/yyyy' }}</h2>
+                  
+                </ion-label>
+              </ion-item>
+    
+              <ion-item lines="none" *ngIf="!travelToday || travelToday.length === 0">
+                <ion-label lines="none" >É tudo por agora!.</ion-label>
+              </ion-item>
+            </ion-list>
+          </div>
+        </ion-content>
+      
     </div>
   </ion-tab>
 

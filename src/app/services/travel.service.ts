@@ -146,6 +146,37 @@ export class TravelService {
     });
   }
 
+  async getTravelsToday(date: Date){
+    return this.authService.getToken().then((token: string) => {
+      if (!token) {
+        this.router.navigate(['/pages/login']); 
+        return Promise.reject('No token available. Redirecting to login...');
+      }
+  
+      const headers = new HttpHeaders({
+        Authorization: `Bearer ${token}`, 
+        'Content-Type': 'application/json',
+      });
+  
+      const formattedDate = date.toISOString().split('.')[0]; 
+  
+      return this.http
+        .get<Travel[]>(
+          `${this.API_URL}Travels/GetTravelsToday/${formattedDate}`, 
+          { headers } 
+        )
+        .toPromise()
+        .catch((error) => {
+          if (error.status === 401) {
+            // Redirect to login on unauthorized error
+            this.router.navigate(['/pages/login']);
+            console.error('Unauthorized. Redirecting to login...');
+          }
+          throw error; // Re-throw the error for further handling
+        });
+    });
+  }
+
   async getTravelsTravelLocations(travelId: string){
     return this.authService.getToken().then((token: string) => {
       if (!token) {
