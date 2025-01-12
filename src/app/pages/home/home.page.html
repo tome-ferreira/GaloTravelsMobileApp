@@ -8,7 +8,7 @@
           <ion-title>Início</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
+      <ion-content class="ion-padding" [fullscreen]="true">
         <div class="example-content">Listen now content</div>
       </ion-content>
     </div>
@@ -27,8 +27,48 @@
           <ion-title>Minhas viagens</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
-        <div class="example-content">Radio content</div>
+      <ion-content class="ion-padding" [fullscreen]="true">
+
+        <div class="example-content">
+          <ion-button expand="block" (click)="openCreateTravelModal()" class="button w-100">Criar viagem</ion-button>
+        </div>
+
+        <div class="example-content">
+          <ion-list lines="none">
+            <ion-item lines="none" *ngFor="let travel of TravlesList">
+              <ion-label class="list-member-travel">
+                <div class="travel-header">
+                  <h2>{{ travel.name }}</h2>
+                </div>
+                <div class="travel-times">
+                  <h2>{{ travel.startDate | date:'dd/MM/yyyy' }} - {{ travel.endDate | date:'dd/MM/yyyy' }}</h2>
+                </div>
+                <div class="travel-times">
+                  <h2>{{ travel.startLocation }} - {{ travel.endLocation }}</h2>
+                </div>
+                
+                <div class="travel-icons">
+                  <a
+                    (click)="openTravelDetail(travel)">
+                    <ion-icon name="list-outline"></ion-icon>
+                    <span>Detalhes</span>
+                  </a>
+                  <a 
+                    (click)="openEditTravelModal(travel)">
+                    <ion-icon name="pencil-outline"></ion-icon>
+                    <span>Editar</span>
+                  </a>
+                  <a 
+                    >
+                    <ion-icon name="share-social-outline"></ion-icon>
+                    <span>Partilhar</span>
+                  </a>
+                </div>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+
       </ion-content>
     </div>
   </ion-tab>
@@ -49,7 +89,7 @@
           <ion-title>Library</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
+      <ion-content class="ion-padding" [fullscreen]="true">
         <div class="example-content">Library content</div>
       </ion-content>
     </div>
@@ -70,7 +110,7 @@
           <ion-title>Search</ion-title>
         </ion-toolbar>
       </ion-header>
-      <ion-content>
+      <ion-content class="ion-padding" [fullscreen]="true">
         <div class="example-content">Search content</div>
       </ion-content>
     </div>

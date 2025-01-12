@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Fechar</ion-button>
+    </ion-buttons>
+    <ion-title>Detalhes da viagem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="travel">
+    <ion-card-header>
+      <ion-card-title>{{ travel.name }}</ion-card-title>
+      <ion-card-subtitle>{{ travel.startLocation }} → {{ travel.endLocation }}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p><strong>Descrição:</strong> {{ travel.description }}</p>
+      <p><strong>Data de início:</strong> {{ travel.startDate | date: 'mediumDate' }}</p>
+      <p *ngIf="travel.endDate"><strong>Data de fim:</strong> {{ travel.endDate | date: 'mediumDate' }}</p>
+      <p><strong>Número de pessoas:</strong> {{ travel.peopleN }}</p>
+      <p><strong>Orçamento total:</strong> {{ travel.totalBudget | currency:'EUR' }}</p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

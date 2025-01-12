@@ -35,3 +35,95 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+
+.w-100{
+    width: 100%;
+}
+
+.button{
+    color: #fff;
+    border-radius: 25px;
+}
+.input-costum{
+    background-color: #D1D1D1;
+    border-radius: 10px;
+    padding: 30px;
+    color: #000;
+}
+  
+
+
+
+.list-member {
+    background-color: #D1D1D1;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    color: #000 !important; 
+}
+
+.list-member a {
+    color: inherit; 
+    text-decoration: none; 
+}
+
+
+.list-member-travel {
+    background-color: #D1D1D1;
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 15px;
+    color: #000 !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .travel-header h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .travel-times h2 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .travel-status h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  
+  .travel-icons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .travel-icons a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+  }
+  
+  .travel-icons a.disabled {
+    color: #aaa;
+  }
+  
+  .travel-icons ion-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .travel-icons span {
+    font-size: 0.9rem;
+  }

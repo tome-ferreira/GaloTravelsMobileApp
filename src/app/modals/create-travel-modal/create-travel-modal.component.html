@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>Criar viagem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="travelForm" (ngSubmit)="submit()">
+    <ion-item lines="none">
+      <ion-label position="stacked" lines="none">Nome</ion-label>
+      <ion-input formControlName="name" type="text" lines="none" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked" lines="none">Descrição</ion-label>
+      <ion-input formControlName="description" type="text" lines="none" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label lines="none" position="floating">Data de Início</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-datetime lines="none"
+        formControlName="startDate"
+        presentation="popover"
+        placeholder="Selecionar Data"
+      ></ion-datetime>
+    </ion-item>
+    <ion-note lines="none"
+      *ngIf="travelForm.get('start')?.hasError('required') && travelForm.get('start')?.touched"
+      color="danger"
+    >
+      Data de início é obrigatória!
+    </ion-note>
+    <ion-note lines="none"
+      *ngIf="travelForm.hasError('startNotFuture') && travelForm.get('start')?.touched"
+      color="danger"
+    >
+      Data de início deve ser no futuro!
+    </ion-note>
+
+    <ion-item lines="none">
+      <ion-label lines="none" position="floating">Data de Fim</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-datetime lines="none"
+        formControlName="endDate"
+        presentation="popover"
+        placeholder="Selecionar Data"
+      ></ion-datetime>
+    </ion-item>
+    <ion-note lines="none"
+      *ngIf="travelForm.get('end')?.hasError('required') && travelForm.get('end')?.touched"
+      color="danger"
+    >
+      Data de fim é obrigatória!
+    </ion-note>
+    <ion-note lines="none"
+      *ngIf="travelForm.hasError('endNotFuture') && travelForm.get('end')?.touched"
+      color="danger"
+    >
+      Data de fim deve ser no futuro!
+    </ion-note>
+
+    <ion-item lines="none">
+      <ion-label position="stacked" lines="none">Local de Início</ion-label>
+      <ion-input formControlName="startLocation" type="text" lines="none" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked" lines="none">Local de Fim</ion-label>
+      <ion-input formControlName="endLocation" type="text" lines="none" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked" lines="none">Número de Pessoas</ion-label>
+      <ion-input formControlName="peopleN" type="number" lines="none" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked" lines="none">Orçamento Total</ion-label>
+      <ion-input formControlName="totalBudget" type="number" lines="none" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-footer>
+      <ion-button expand="full" type="submit" [disabled]="!travelForm.valid" class="button">Criar Viagem</ion-button>
+    </ion-footer>
+  </form>
+</ion-content>
+
+
+
+
+
+
+

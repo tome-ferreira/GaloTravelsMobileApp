@@ -38,7 +38,7 @@ export class LoginPage implements OnInit {
       next: async (response) => {
 
         await this.authService.setToken(response.token);
-        //console.log('Login bem sucedido ', response);
+        console.log('Login bem sucedido ', response);
         await this.authService.setRememberUser(true);
         loading.dismiss();
         this.router.navigate(['/home']);

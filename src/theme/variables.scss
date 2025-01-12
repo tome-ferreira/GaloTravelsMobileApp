@@ -4,4 +4,17 @@
 :root {
     --ion-color-primary: #d32f2f; 
     --ion-color-primary-rgb: 211, 47, 47; 
+
+    --ion-color-primary-shade: #b71c1c;
+
+    
+    --list-member-background: #D1D1D1; 
+    --list-member-color: #000; 
+    
+}
+
+.ion-palette-dark.ios,
+.ion-palette-dark.md {
+    --list-member-background: #1f1f1f; 
+    --list-member-color: #fff; 
 }

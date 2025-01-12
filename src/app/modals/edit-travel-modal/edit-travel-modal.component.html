@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title>Editar Viagem</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="delete()">Apagar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="travelForm" (ngSubmit)="submit()">
+    <ion-item lines="none">
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input formControlName="name" type="text" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Descrição</ion-label>
+      <ion-input formControlName="description" type="text" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Data de Início</ion-label>
+      <ion-datetime
+        formControlName="startDate"
+        presentation="popover"
+        placeholder="Selecionar Data"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Data de Fim</ion-label>
+      <ion-datetime
+        formControlName="endDate"
+        presentation="popover"
+        placeholder="Selecionar Data"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Local de Início</ion-label>
+      <ion-input formControlName="startLocation" type="text" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Local de Fim</ion-label>
+      <ion-input formControlName="endLocation" type="text" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Número de Pessoas</ion-label>
+      <ion-input formControlName="peopleN" type="number" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none">
+      <ion-label position="stacked">Orçamento Total</ion-label>
+      <ion-input formControlName="totalBudget" type="number" class="input-costum"></ion-input>
+    </ion-item>
+
+    <ion-footer>
+      <ion-button expand="full" type="submit" [disabled]="!travelForm.valid" class="button">
+        Guardar Alterações
+      </ion-button>
+    </ion-footer>
+  </form>
+</ion-content>
